@@ -54,112 +54,82 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="newButton" linkSize="1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="deleteButton" linkSize="1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="refreshButton" linkSize="1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="saveButton" linkSize="1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="masterScrollPane" alignment="1" min="-2" pref="908" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
-                                      <Component id="pbnField" min="-2" pref="84" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="cLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="dField" min="-2" pref="84" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="ciafLabel" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                          <Component id="ciafField" min="-2" pref="60" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                          <Component id="crLabel" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="crField" min="-2" pref="70" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="ccolLabel" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="ppbpLabel" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="ppbpField" min="-2" pref="74" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="pbnLabel" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="cField" min="-2" pref="75" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="dLabel" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
-                                      <Component id="imagem" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="ciafLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="ciafField" min="-2" pref="49" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="ccolField" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="crLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="crField" min="-2" pref="79" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="ccolLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="ccolField" min="-2" pref="89" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="cumLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="cumField" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="cumField" min="-2" pref="94" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="ndLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="ndField" min="-2" pref="86" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="fLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="fField" min="-2" pref="74" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="aLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="aField" min="-2" pref="79" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="pbcLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                      <Component id="pbcField" min="-2" pref="86" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="anoLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="anoField" min="-2" pref="102" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="bLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="bField" min="-2" pref="107" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                      <Component id="resultado" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="ndLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="ndField" min="-2" pref="91" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="fLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="fField" min="-2" pref="93" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="aLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="aField" min="-2" pref="82" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="bLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="bField" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="masterScrollPane" pref="1002" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="ppbpLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="ppbpField" min="-2" pref="49" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="pbnLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="pbnField" min="-2" pref="85" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="cField" min="-2" pref="87" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="dLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="dField" min="-2" pref="98" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="pbcLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="pbcField" min="-2" pref="90" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="anoLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="anoField" min="-2" pref="102" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jt_Resultado" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
-                      <Component id="newButton" min="-2" pref="91" max="-2" attributes="0"/>
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                      <Component id="deleteButton" min="-2" pref="91" max="-2" attributes="0"/>
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                      <Component id="refreshButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                      <Component id="saveButton" min="-2" pref="91" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -168,65 +138,53 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="masterScrollPane" min="-2" pref="130" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                      <Component id="ciafLabel" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="ciafField" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="crField" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="crLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ccolLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ccolField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cumLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cumField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ndLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ndField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="fLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="fField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="aLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="aField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="bLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="bField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="masterScrollPane" pref="137" max="32767" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="ciafLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ciafField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="crLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="crField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ccolLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ccolField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cumLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cumField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ndLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ndField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="aLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="aField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="ppbpLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="ppbpField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="pbnLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="pbnField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="dLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="dField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="pbcLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="pbcField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="anoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="anoField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="resultado" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pbnField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="dField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jt_Resultado" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" pref="28" max="32767" attributes="0"/>
-              <Component id="imagem" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="198" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="newButton" min="-2" max="-2" attributes="0"/>
-                  <Component id="deleteButton" min="-2" max="-2" attributes="0"/>
-                  <Component id="refreshButton" min="-2" max="-2" attributes="0"/>
-                  <Component id="saveButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="saveButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="refreshButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="deleteButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="newButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -244,55 +202,55 @@
             <BindingProperty name="elements" source="list" target="masterTable" targetPath="elements" updateStrategy="0" immediately="false">
               <Subbinding sourcePath="${ciaf}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="0"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Float.class"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Short.class"/>
               </Subbinding>
               <Subbinding sourcePath="${cr}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="1"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Float.class"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Short.class"/>
               </Subbinding>
               <Subbinding sourcePath="${ccol}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="2"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Float.class"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Short.class"/>
               </Subbinding>
               <Subbinding sourcePath="${cum}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="3"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Float.class"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Short.class"/>
               </Subbinding>
               <Subbinding sourcePath="${nd}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="4"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Float.class"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Short.class"/>
               </Subbinding>
               <Subbinding sourcePath="${f}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="5"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Float.class"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Short.class"/>
               </Subbinding>
               <Subbinding sourcePath="${a}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="6"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Float.class"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Short.class"/>
               </Subbinding>
               <Subbinding sourcePath="${b}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="7"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Float.class"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Short.class"/>
               </Subbinding>
               <Subbinding sourcePath="${ppbp}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="8"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Float.class"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Short.class"/>
               </Subbinding>
               <Subbinding sourcePath="${pbn}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="9"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Float.class"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Short.class"/>
               </Subbinding>
               <Subbinding sourcePath="${c}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="10"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Float.class"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Short.class"/>
               </Subbinding>
               <Subbinding sourcePath="${d}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="11"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Float.class"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Short.class"/>
               </Subbinding>
               <Subbinding sourcePath="${pbc}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="12"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Float.class"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Short.class"/>
               </Subbinding>
               <Subbinding sourcePath="${ano}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN" value="13"/>
@@ -527,7 +485,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="deleteButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Apagar"/>
+        <Property name="text" type="java.lang.String" value="Deletar"/>
       </Properties>
       <BindingProperties>
         <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="deleteButton" targetPath="enabled" updateStrategy="1" immediately="false"/>
@@ -548,17 +506,12 @@
         <Property name="text" type="java.lang.String" value="PPcana:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="resultado">
+    <Component class="javax.swing.JTextField" name="jt_Resultado">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="ff" red="99" type="rgb"/>
+          <Color blue="cc" green="ff" red="cc" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Resultado"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="imagem">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="...fundo"/>
       </Properties>
     </Component>
   </SubComponents>

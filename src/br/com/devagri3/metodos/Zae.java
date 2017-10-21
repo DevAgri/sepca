@@ -23,6 +23,23 @@ public class Zae extends JPanel {
         initComponents();
         if (!Beans.isDesignTime()) {
             entityManager.getTransaction().begin();
+            // calculando PPcana
+//            Integer ciaf = Integer.parseInt(ciafField.getText());
+//            Integer cr = Integer.parseInt(crField.getText());
+//            Integer ccol = Integer.parseInt(ccolField.getText());
+//            Integer cum = Integer.parseInt(cumField.getText());
+//            Integer nd = Integer.parseInt(ndField.getText());
+//            Integer f = Integer.parseInt(fField.getText());
+//            Integer a = Integer.parseInt(aField.getText());
+//            Integer b = Integer.parseInt(bField.getText());
+//            Integer ppbp = Integer.parseInt(ppbpField.getText());
+//            Integer pbn = Integer.parseInt(pbnField.getText());
+//            Integer c = Integer.parseInt(cField.getText());
+//            Integer d = Integer.parseInt(dField.getText());
+//            Integer pbc = Integer.parseInt(pbcField.getText());
+//            Integer resp = ciaf*cr*ccol*cum*nd*(f*(a+b+ppbp)*pbn+(1-f)*(c+d*ppbp)*pbc);
+//            jt_Resultado.setText(Integer.toString(resp));
+            
         }
     }
 
@@ -75,8 +92,13 @@ public class Zae extends JPanel {
         deleteButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jt_Resultado = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         FormListener formListener = new FormListener();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        masterTable.setBorder(new javax.swing.border.MatteBorder(null));
 
         org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, list, masterTable);
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${ciaf}"));
@@ -125,33 +147,77 @@ public class Zae extends JPanel {
 
         masterScrollPane.setViewportView(masterTable);
 
+        add(masterScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 1002, 137));
+
+        ciafLabel.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        ciafLabel.setForeground(new java.awt.Color(255, 255, 255));
         ciafLabel.setText("Ciaf:");
+        add(ciafLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 154, -1, -1));
 
+        crLabel.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        crLabel.setForeground(new java.awt.Color(255, 255, 255));
         crLabel.setText("Cr:");
+        add(crLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 154, -1, -1));
 
+        ccolLabel.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        ccolLabel.setForeground(new java.awt.Color(255, 255, 255));
         ccolLabel.setText("Ccol:");
+        add(ccolLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 154, -1, -1));
 
+        cumLabel.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        cumLabel.setForeground(new java.awt.Color(255, 255, 255));
         cumLabel.setText("Cum:");
+        add(cumLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 154, -1, -1));
 
+        ndLabel.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        ndLabel.setForeground(new java.awt.Color(255, 255, 255));
         ndLabel.setText("Nd:");
+        add(ndLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 154, -1, -1));
 
+        fLabel.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        fLabel.setForeground(new java.awt.Color(255, 255, 255));
         fLabel.setText("F:");
+        add(fLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(608, 154, -1, -1));
 
+        aLabel.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        aLabel.setForeground(new java.awt.Color(255, 255, 255));
         aLabel.setText("A:");
+        add(aLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(724, 154, -1, -1));
 
+        bLabel.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        bLabel.setForeground(new java.awt.Color(255, 255, 255));
         bLabel.setText("B:");
+        add(bLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(837, 154, -1, -1));
 
+        ppbpLabel.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        ppbpLabel.setForeground(new java.awt.Color(255, 255, 255));
         ppbpLabel.setText("Ppbp:");
+        add(ppbpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 192, -1, -1));
 
+        pbnLabel.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        pbnLabel.setForeground(new java.awt.Color(255, 255, 255));
         pbnLabel.setText("Pbn:");
+        add(pbnLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 192, -1, -1));
 
+        cLabel.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        cLabel.setForeground(new java.awt.Color(255, 255, 255));
         cLabel.setText("C:");
+        add(cLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 192, -1, -1));
 
+        dLabel.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        dLabel.setForeground(new java.awt.Color(255, 255, 255));
         dLabel.setText("D:");
+        add(dLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 192, -1, -1));
 
+        pbcLabel.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        pbcLabel.setForeground(new java.awt.Color(255, 255, 255));
         pbcLabel.setText("Pbc:");
+        add(pbcLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(474, 192, -1, -1));
 
+        anoLabel.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        anoLabel.setForeground(new java.awt.Color(255, 255, 255));
         anoLabel.setText("Ano:");
+        add(anoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(608, 192, -1, -1));
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.ciaf}"), ciafField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -159,11 +225,15 @@ public class Zae extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), ciafField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        add(ciafField, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 149, 49, -1));
+
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.cr}"), crField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
         bindingGroup.addBinding(binding);
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), crField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
+
+        add(crField, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 149, 79, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.ccol}"), ccolField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -171,11 +241,15 @@ public class Zae extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), ccolField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        add(ccolField, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 149, 89, -1));
+
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.cum}"), cumField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
         bindingGroup.addBinding(binding);
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), cumField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
+
+        add(cumField, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 149, 90, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.nd}"), ndField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -183,11 +257,15 @@ public class Zae extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), ndField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        add(ndField, new org.netbeans.lib.awtextra.AbsoluteConstraints(511, 149, 91, -1));
+
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.f}"), fField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
         bindingGroup.addBinding(binding);
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), fField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
+
+        add(fField, new org.netbeans.lib.awtextra.AbsoluteConstraints(625, 149, 93, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.a}"), aField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -195,11 +273,15 @@ public class Zae extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), aField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        add(aField, new org.netbeans.lib.awtextra.AbsoluteConstraints(743, 149, 82, -1));
+
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.b}"), bField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
         bindingGroup.addBinding(binding);
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), bField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
+
+        add(bField, new org.netbeans.lib.awtextra.AbsoluteConstraints(866, 149, 142, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.ppbp}"), ppbpField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -207,11 +289,15 @@ public class Zae extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), ppbpField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        add(ppbpField, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 187, 49, -1));
+
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.pbn}"), pbnField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
         bindingGroup.addBinding(binding);
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), pbnField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
+
+        add(pbnField, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 187, 85, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.c}"), cField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -219,11 +305,15 @@ public class Zae extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), cField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        add(cField, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 187, 87, -1));
+
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.d}"), dField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
         bindingGroup.addBinding(binding);
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), dField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
+
+        add(dField, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 187, 98, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.pbc}"), pbcField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -231,20 +321,27 @@ public class Zae extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), pbcField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        add(pbcField, new org.netbeans.lib.awtextra.AbsoluteConstraints(512, 187, 90, -1));
+
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.ano}"), anoField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
         bindingGroup.addBinding(binding);
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), anoField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        add(anoField, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 187, 102, -1));
+
         saveButton.setText("Salvar");
         saveButton.addActionListener(formListener);
+        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 380, 100, -1));
 
         refreshButton.setText("Atualizar");
         refreshButton.addActionListener(formListener);
+        add(refreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 380, -1, -1));
 
         newButton.setText("Inserir");
         newButton.addActionListener(formListener);
+        add(newButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, 100, -1));
 
         deleteButton.setText("Deletar");
 
@@ -252,143 +349,20 @@ public class Zae extends JPanel {
         bindingGroup.addBinding(binding);
 
         deleteButton.addActionListener(formListener);
+        add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 380, 100, -1));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("PPcana:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(751, 191, -1, -1));
 
         jt_Resultado.setBackground(new java.awt.Color(204, 255, 204));
         jt_Resultado.setText("Resultado");
+        jt_Resultado.addActionListener(formListener);
+        add(jt_Resultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 187, 198, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(newButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(deleteButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(refreshButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(saveButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(ciafLabel)
-                                .addGap(12, 12, 12)
-                                .addComponent(ciafField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(crLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(crField, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ccolLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ccolField, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cumLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cumField, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ndLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ndField, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fField, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(aLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(aField, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(bLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(bField))
-                            .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1002, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(ppbpLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ppbpField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pbnLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pbnField, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cField, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dField, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pbcLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pbcField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(anoLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(anoField, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jt_Resultado)))))
-                .addContainerGap())
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {deleteButton, newButton, refreshButton, saveButton});
-
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ciafLabel)
-                    .addComponent(ciafField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(crLabel)
-                    .addComponent(crField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ccolLabel)
-                    .addComponent(ccolField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cumLabel)
-                    .addComponent(cumField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ndLabel)
-                    .addComponent(ndField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fLabel)
-                    .addComponent(fField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(aLabel)
-                    .addComponent(aField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bLabel)
-                    .addComponent(bField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ppbpLabel)
-                    .addComponent(ppbpField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pbnLabel)
-                    .addComponent(pbnField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cLabel)
-                    .addComponent(cField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dLabel)
-                    .addComponent(dField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pbcLabel)
-                    .addComponent(pbcField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(anoLabel)
-                    .addComponent(anoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jt_Resultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(193, 193, 193)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(saveButton)
-                    .addComponent(refreshButton)
-                    .addComponent(deleteButton)
-                    .addComponent(newButton))
-                .addContainerGap())
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/devagri/assets/sugarcane.jpg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 440));
 
         bindingGroup.bind();
     }
@@ -409,6 +383,9 @@ public class Zae extends JPanel {
             }
             else if (evt.getSource() == deleteButton) {
                 Zae.this.deleteButtonActionPerformed(evt);
+            }
+            else if (evt.getSource() == jt_Resultado) {
+                Zae.this.jt_ResultadoActionPerformed(evt);
             }
         }
     }// </editor-fold>//GEN-END:initComponents
@@ -462,6 +439,10 @@ public class Zae extends JPanel {
         }
     }//GEN-LAST:event_saveButtonActionPerformed
 
+    private void jt_ResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jt_ResultadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jt_ResultadoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField aField;
@@ -487,6 +468,7 @@ public class Zae extends JPanel {
     private javax.swing.JTextField fField;
     private javax.swing.JLabel fLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jt_Resultado;
     private java.util.List<br.com.devagri3.metodos.MetodoZae> list;
     private javax.swing.JScrollPane masterScrollPane;
@@ -533,6 +515,8 @@ public class Zae extends JPanel {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 JFrame frame = new JFrame();
+                frame.setTitle("Estimativa - Método ZAE");
+                frame.setResizable(false);
                 frame.setContentPane(new Zae());
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();

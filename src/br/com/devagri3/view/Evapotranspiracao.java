@@ -5,6 +5,7 @@
  */
 package br.com.devagri3.view;
 
+import br.com.devagri3.utils.Globals;
 import java.awt.EventQueue;
 import java.beans.Beans;
 import java.util.ArrayList;
@@ -12,18 +13,34 @@ import java.util.List;
 import javax.persistence.RollbackException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.xml.bind.JAXBElement;
+import jdk.nashorn.internal.objects.Global;
 
 /**
  *
  * @author willyan
  */
 public class Evapotranspiracao extends JPanel {
+     
+    
+    int calc_etccana(){
+        double kc = Double.parseDouble(kcField.getText());
+        double evptrref = Double.parseDouble(evptrRefField.getText());
+        
+        double etccana = kc*evptrref;
+        resultado.setText(etccana + "kg /ha" );
+        
+       
+       return 0;  
+    }
     
     public Evapotranspiracao() {
         initComponents();
         if (!Beans.isDesignTime()) {
             entityManager.getTransaction().begin();
         }
+        masterTable.setRowSelectionInterval(0, 0);
+        calc_etccana();
     }
 
     /**
@@ -51,6 +68,8 @@ public class Evapotranspiracao extends JPanel {
         deleteButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        resultado = new javax.swing.JTextField();
 
         FormListener formListener = new FormListener();
 
@@ -67,6 +86,7 @@ public class Evapotranspiracao extends JPanel {
         columnBinding.setColumnClass(Float.class);
         bindingGroup.addBinding(jTableBinding);
 
+        masterTable.addMouseListener(formListener);
         masterScrollPane.setViewportView(masterTable);
 
         add(masterScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 800, 94));
@@ -119,12 +139,18 @@ public class Evapotranspiracao extends JPanel {
         jLabel2.setText("ET0 - Evapotranspiração de Referência ");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 270, -1));
 
+        jLabel3.setText("Resultado:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, -1, -1));
+
+        resultado.setBackground(new java.awt.Color(204, 255, 204));
+        add(resultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, 190, -1));
+
         bindingGroup.bind();
     }
 
     // Code for dispatching events from components to event handlers.
 
-    private class FormListener implements java.awt.event.ActionListener {
+    private class FormListener implements java.awt.event.ActionListener, java.awt.event.MouseListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             if (evt.getSource() == saveButton) {
@@ -139,6 +165,24 @@ public class Evapotranspiracao extends JPanel {
             else if (evt.getSource() == deleteButton) {
                 Evapotranspiracao.this.deleteButtonActionPerformed(evt);
             }
+        }
+
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            if (evt.getSource() == masterTable) {
+                Evapotranspiracao.this.masterTableMouseClicked(evt);
+            }
+        }
+
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+        }
+
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+        }
+
+        public void mousePressed(java.awt.event.MouseEvent evt) {
+        }
+
+        public void mouseReleased(java.awt.event.MouseEvent evt) {
         }
     }// </editor-fold>//GEN-END:initComponents
 
@@ -191,6 +235,10 @@ public class Evapotranspiracao extends JPanel {
         }
     }//GEN-LAST:event_saveButtonActionPerformed
 
+    private void masterTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_masterTableMouseClicked
+        calc_etccana();
+    }//GEN-LAST:event_masterTableMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton deleteButton;
@@ -199,6 +247,7 @@ public class Evapotranspiracao extends JPanel {
     private javax.swing.JLabel evptrRefLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField kcField;
     private javax.swing.JLabel kcLabel;
     private java.util.List<br.com.devagri3.metodos.Evapotranspiracao_1> list;
@@ -207,6 +256,7 @@ public class Evapotranspiracao extends JPanel {
     private javax.swing.JButton newButton;
     private javax.persistence.Query query;
     private javax.swing.JButton refreshButton;
+    private javax.swing.JTextField resultado;
     private javax.swing.JButton saveButton;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables

@@ -14,17 +14,31 @@ import java.awt.Color;
  * @author willyan
  */
 public class Calcula {
+    //private static final Calcula INSTANCE = new Calcula();
     public double area = 0;
     public double area2 = 0;
     
     public double getArea(){
         return area;
     }
+
+    public String getCaminho() {
+        return caminho;
+    }
+
+    public void setCaminho(String caminho) {
+        this.caminho = caminho;
+    }
     
-    public void Calcula() throws IOException {
+    public String caminho;
+    
+//    public static Calcula getInstance(){
+//        return INSTANCE; 
+//    }
+    
+    public void Calcula() throws IOException {    
         
-        
-       BufferedImage imagem = ImageIO.read(new File("rec_Talhoes_2017_Prod_Setor__02501.jpg"));
+       BufferedImage imagem = ImageIO.read(new File(caminho));
        int w = imagem.getWidth();
        int h = imagem.getHeight();
        int pxdb = 0;

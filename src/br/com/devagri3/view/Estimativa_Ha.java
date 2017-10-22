@@ -5,28 +5,56 @@
  */
 package br.com.devagri3.view;
 
+import br.com.devagri3.dao.Conecta;
 import com.sun.javafx.property.adapter.Disposer;
 import java.awt.EventQueue;
 import java.awt.event.KeyEvent;
 import java.beans.Beans;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.RollbackException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import br.com.devagri3.utils.Globals;
 
 /**
  *
  * @author willyan
  */
 public class Estimativa_Ha extends JPanel {
+    Globals g = new Globals();
+
     
-    public Estimativa_Ha() {
-        initComponents();
-        if (!Beans.isDesignTime()) {
-            entityManager.getTransaction().begin();
-        }
+    int calc_produt() throws SQLException{
+        
+        double ppcana = Double.parseDouble(ppcanaField.getText());
+        double ky = Double.parseDouble(kyField.getText());
+        double etrcana = Double.parseDouble(etrcanaField.getText());
+        double etccana = Double.parseDouble(etccanaField.getText());
+        
+        double prcana =  ppcana * (1-ky* (1-(etrcana/etccana)));
+        resultado.setText(prcana + "kg /ha" );
+        
+        g.setPrcana(prcana);
+        System.out.println(prcana);
+        return 0;
     }
+    
+    public Estimativa_Ha() throws ClassNotFoundException, SQLException {
+        initComponents();        
+        if (!Beans.isDesignTime()) {
+            entityManager.getTransaction().begin();    
+        }
+        masterTable.setRowSelectionInterval(0,0); 
+        calc_produt();
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -85,6 +113,7 @@ public class Estimativa_Ha extends JPanel {
         columnBinding.setColumnClass(Float.class);
         bindingGroup.addBinding(jTableBinding);
 
+        masterTable.addMouseListener(formListener);
         masterScrollPane.setViewportView(masterTable);
 
         add(masterScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 31, 860, 109));
@@ -181,7 +210,7 @@ public class Estimativa_Ha extends JPanel {
 
     // Code for dispatching events from components to event handlers.
 
-    private class FormListener implements java.awt.event.ActionListener, java.awt.event.KeyListener {
+    private class FormListener implements java.awt.event.ActionListener, java.awt.event.KeyListener, java.awt.event.MouseListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             if (evt.getSource() == saveButton) {
@@ -208,6 +237,24 @@ public class Estimativa_Ha extends JPanel {
         }
 
         public void keyTyped(java.awt.event.KeyEvent evt) {
+        }
+
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            if (evt.getSource() == masterTable) {
+                Estimativa_Ha.this.masterTableMouseClicked(evt);
+            }
+        }
+
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+        }
+
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+        }
+
+        public void mousePressed(java.awt.event.MouseEvent evt) {
+        }
+
+        public void mouseReleased(java.awt.event.MouseEvent evt) {
         }
     }// </editor-fold>//GEN-END:initComponents
 
@@ -264,6 +311,14 @@ public class Estimativa_Ha extends JPanel {
         
             
     }//GEN-LAST:event_formKeyPressed
+
+    private void masterTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_masterTableMouseClicked
+        try {
+            calc_produt();
+        } catch (SQLException ex) {
+            Logger.getLogger(Estimativa_Ha.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_masterTableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -322,7 +377,13 @@ public class Estimativa_Ha extends JPanel {
             public void run() {
              
                 JFrame Estframe = new JFrame();
-                Estframe.setContentPane(new Estimativa_Ha());
+                try {
+                    Estframe.setContentPane(new Estimativa_Ha());
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(Estimativa_Ha.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Estimativa_Ha.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 Estframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 Estframe.pack();
                 //Estframe.setSize(710, 432);

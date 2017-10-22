@@ -6,11 +6,13 @@
 package br.com.devagri3.view;
 
 import br.com.devagri3.metodo.imagem.Calcula;
+import br.com.devagri3.utils.Globals;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
 /**
@@ -18,7 +20,8 @@ import javax.swing.JFrame;
  * @author willyan
  */
 public class abrirImagem extends javax.swing.JFrame {
-
+   public String caminho;    
+    Globals g = Globals.getInstancia();
     /**
      * Creates new form ImagemSatelite
      */
@@ -31,6 +34,7 @@ public class abrirImagem extends javax.swing.JFrame {
         this.setSize(780, 480);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+            
     }
 
     /**
@@ -56,7 +60,7 @@ public class abrirImagem extends javax.swing.JFrame {
                 formKeyPressed(evt);
             }
         });
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Carregar Imagem");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -64,8 +68,7 @@ public class abrirImagem extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(490, 420, 190, 29);
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 420, 190, -1));
 
         jButton2.setText("Calcular");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -73,43 +76,54 @@ public class abrirImagem extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(680, 420, 95, 29);
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 420, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
         jLabel1.setText("Calibrado para imagens com resolução de 72 dpi do Satélite Sentinel II");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 430, 350, 13);
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(10, 10, 640, 380);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 350, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 640, 380));
 
         jLabel3.setText("Resultado:");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(700, 370, 80, 16);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 370, 80, -1));
 
         resultado.setBackground(new java.awt.Color(153, 255, 153));
-        getContentPane().add(resultado);
-        resultado.setBounds(490, 390, 280, 26);
+        getContentPane().add(resultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 390, 280, -1));
 
         fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/devagri3/assets/2background.jpg"))); // NOI18N
-        getContentPane().add(fundo);
-        fundo.setBounds(-16, -6, 800, 510);
+        getContentPane().add(fundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-16, -6, 800, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        jLabel2.setIcon(new ImageIcon("rec_Talhoes_2017_Prod_Setor__02501.jpg"));
+        JFileChooser fc = new JFileChooser();
+        fc.setCurrentDirectory(new java.io.File("/users/willyan/"));
+        fc.setDialogTitle("Abrir Imagem");
+        fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        if (fc.showOpenDialog(jButton1 ) ==  JFileChooser.APPROVE_OPTION)
+        {
+            
+            
+        }
+        System.out.println("Caminho: "+fc.getSelectedFile().getAbsolutePath());
+        String  path = fc.getSelectedFile().getAbsolutePath();
+        caminho = path;
+        jLabel2.setIcon(new ImageIcon(path));
+        
+        
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Calcula calcular = new Calcula();
+        calcular.setCaminho(caminho);
         try {
+            
             calcular.Calcula();
             double area = calcular.area2;
             resultado.setText("Área: " + area + " Ha");
+            g.setArea_total(area);
+            
 
         } catch (IOException ex) {
             Logger.getLogger(abrirImagem.class.getName()).log(Level.SEVERE, null, ex);

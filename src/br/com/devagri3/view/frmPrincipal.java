@@ -12,6 +12,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import br.com.devagri3.view.Estimativa_Ha;
 import java.awt.BorderLayout;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
        
 /**
  *
@@ -176,7 +179,12 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_formKeyPressed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        Potencial_de_producao est = new Potencial_de_producao();
+        Potencial_de_producao est = null;
+        try {
+            est = new Potencial_de_producao();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(frmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
         est.setSize(880,530);
         est.setLocation(0,0);
         painel.removeAll();
@@ -186,7 +194,14 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        Estimativa_Ha est = new Estimativa_Ha();
+        Estimativa_Ha est = null;
+        try {
+            est = new Estimativa_Ha();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(frmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(frmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
         est.setSize(710,432);
         est.setLocation(5,5);
         painel.removeAll();

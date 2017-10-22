@@ -5,10 +5,17 @@
  */
 package br.com.devagri3.view;
 
+import br.com.devagri3.dao.Conecta;
 import java.awt.EventQueue;
 import java.beans.Beans;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.RollbackException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,12 +26,54 @@ import javax.swing.JPanel;
  */
 public class Potencial_de_producao extends JPanel {
     
-    public Potencial_de_producao() {
+    
+    int  calc_ppbcana() throws SQLException{
+        double Ciaf = Double.parseDouble(ciafField.getText());
+        double Cr = Double.parseDouble(crField.getText());
+        double Ccol = Double.parseDouble(ccolField.getText());
+        double Cum = Double.parseDouble(cumField.getText());
+        double ND = Double.parseDouble(ndField.getText());
+        double F = Double.parseDouble(fField.getText());
+        double a = Double.parseDouble(aField.getText());
+        double b = Double.parseDouble(bField.getText());
+        double PPBp = Double.parseDouble(ppbpField.getText());
+        double PBn = Double.parseDouble(pbnField.getText());
+        double c = Double.parseDouble(cField.getText());
+        double d = Double.parseDouble(dField.getText());
+        double PBc = Double.parseDouble(pbcField.getText());
+        
+        double ppbcana =  Ciaf * Cr * Ccol * Cum * ND * ( F * (a+b*PPBp)*PBn+(1-F)*(c+d*PPBp)*PBc );
+        
+        resultado.setText(ppbcana + "kg /ha" );
+        
+       
+        
+        
+        
+        return 0;
+    }
+    
+    public Potencial_de_producao() throws ClassNotFoundException {
         initComponents();
+        
+        
      
         if (!Beans.isDesignTime()) {
             entityManager.getTransaction().begin();
         }
+        
+          masterTable.setRowSelectionInterval(0,0);  
+        
+        try {
+            //PPBc = Ciaf * Cr * Ccol * Cum * ND * ( F * (a+b*PPBp)*PBn+(1-F)*(c+d*PPBp)*PBc )
+            calc_ppbcana();
+        } catch (SQLException ex) {
+            Logger.getLogger(Potencial_de_producao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+       
+        
+        
     }
 
     /**
@@ -91,6 +140,8 @@ public class Potencial_de_producao extends JPanel {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        resultado = new javax.swing.JTextField();
         imagem = new javax.swing.JLabel();
 
         FormListener formListener = new FormListener();
@@ -150,6 +201,7 @@ public class Potencial_de_producao extends JPanel {
         columnBinding.setColumnClass(Short.class);
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
+        masterTable.addMouseListener(formListener);
         masterScrollPane.setViewportView(masterTable);
 
         add(masterScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 860, 131));
@@ -389,6 +441,12 @@ public class Potencial_de_producao extends JPanel {
         jLabel13.setText("PBc - Período de Céu Claro");
         add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, -1, -1));
 
+        jLabel14.setText("Resultado:");
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, -1, -1));
+
+        resultado.setBackground(new java.awt.Color(153, 255, 153));
+        add(resultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 230, 200, -1));
+
         imagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/devagri3/assets/2background.jpg"))); // NOI18N
         add(imagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 880, 500));
 
@@ -397,7 +455,7 @@ public class Potencial_de_producao extends JPanel {
 
     // Code for dispatching events from components to event handlers.
 
-    private class FormListener implements java.awt.event.ActionListener {
+    private class FormListener implements java.awt.event.ActionListener, java.awt.event.MouseListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             if (evt.getSource() == saveButton) {
@@ -412,6 +470,24 @@ public class Potencial_de_producao extends JPanel {
             else if (evt.getSource() == deleteButton) {
                 Potencial_de_producao.this.deleteButtonActionPerformed(evt);
             }
+        }
+
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            if (evt.getSource() == masterTable) {
+                Potencial_de_producao.this.masterTableMouseClicked(evt);
+            }
+        }
+
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+        }
+
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+        }
+
+        public void mousePressed(java.awt.event.MouseEvent evt) {
+        }
+
+        public void mouseReleased(java.awt.event.MouseEvent evt) {
         }
     }// </editor-fold>//GEN-END:initComponents
 
@@ -464,6 +540,14 @@ public class Potencial_de_producao extends JPanel {
         }
     }//GEN-LAST:event_saveButtonActionPerformed
 
+    private void masterTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_masterTableMouseClicked
+        try {
+            calc_ppbcana();
+        } catch (SQLException ex) {
+            Logger.getLogger(Potencial_de_producao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_masterTableMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField aField;
@@ -494,6 +578,7 @@ public class Potencial_de_producao extends JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -518,6 +603,7 @@ public class Potencial_de_producao extends JPanel {
     private javax.swing.JLabel produtorLabel;
     private javax.persistence.Query query;
     private javax.swing.JButton refreshButton;
+    private javax.swing.JTextField resultado;
     private javax.swing.JButton saveButton;
     private javax.swing.JTextField setorField;
     private javax.swing.JLabel setorLabel;
@@ -551,7 +637,11 @@ public class Potencial_de_producao extends JPanel {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 JFrame frame = new JFrame();
-                frame.setContentPane(new Potencial_de_producao());
+                try {
+                    frame.setContentPane(new Potencial_de_producao());
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(Potencial_de_producao.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
                 //frame.setSize(900, 550);

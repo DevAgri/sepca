@@ -5,6 +5,7 @@
  */
 package br.com.devagri3.view;
 
+import br.com.devagri3.utils.Globals;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 
@@ -13,7 +14,7 @@ import javax.swing.JFrame;
  * @author willyan
  */
 public class Total extends javax.swing.JFrame {
-
+    Globals g = Globals.getInstancia();
     /**
      * Creates new form Total
      */
@@ -22,6 +23,19 @@ public class Total extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         initComponents();
+        
+        double area2 = g.getArea_total();
+        double prcana2 = g.getPrcana();
+        System.out.println(area2);
+        System.out.println(prcana2);
+        
+        jt_area.setText(String.valueOf(area2));
+        jt_prcana.setText(String.valueOf(prcana2));
+        
+        double total_geral = area2*prcana2;
+        jt_total.setText(String.valueOf(total_geral));
+        
+        
     }
 
     /**
@@ -35,11 +49,11 @@ public class Total extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jt_area = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jt_prcana = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jt_total = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -57,19 +71,19 @@ public class Total extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel2.setText("Área Analisada por imagem:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 300, -1));
+        getContentPane().add(jt_area, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 300, -1));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel3.setText("PPRcana:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 300, -1));
+        getContentPane().add(jt_prcana, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 300, -1));
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel4.setText("Total:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
-        jTextField3.setBackground(new java.awt.Color(153, 255, 153));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 300, -1));
+        jt_total.setBackground(new java.awt.Color(153, 255, 153));
+        getContentPane().add(jt_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 300, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/devagri3/assets/background.jpg"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 590, 300));
@@ -124,8 +138,8 @@ public class Total extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jt_area;
+    private javax.swing.JTextField jt_prcana;
+    private javax.swing.JTextField jt_total;
     // End of variables declaration//GEN-END:variables
 }

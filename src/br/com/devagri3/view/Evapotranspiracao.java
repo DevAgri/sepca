@@ -49,8 +49,13 @@ public class Evapotranspiracao extends JPanel {
         refreshButton = new javax.swing.JButton();
         newButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        imagem = new javax.swing.JLabel();
 
         FormListener formListener = new FormListener();
+
+        setLayout(null);
 
         org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, list, masterTable);
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${kc}"));
@@ -63,9 +68,16 @@ public class Evapotranspiracao extends JPanel {
 
         masterScrollPane.setViewportView(masterTable);
 
+        add(masterScrollPane);
+        masterScrollPane.setBounds(6, 6, 688, 94);
+
         kcLabel.setText("Kc:");
+        add(kcLabel);
+        kcLabel.setBounds(6, 123, 19, 16);
 
         evptrRefLabel.setText("Evptr Ref:");
+        add(evptrRefLabel);
+        evptrRefLabel.setBounds(190, 123, 60, 16);
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.kc}"), kcField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -73,80 +85,53 @@ public class Evapotranspiracao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), kcField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        add(kcField);
+        kcField.setBounds(31, 118, 153, 26);
+
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.evptrRef}"), evptrRefField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
         bindingGroup.addBinding(binding);
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), evptrRefField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        saveButton.setText("Save");
+        add(evptrRefField);
+        evptrRefField.setBounds(262, 118, 136, 26);
+
+        saveButton.setText("Salvar");
         saveButton.addActionListener(formListener);
+        add(saveButton);
+        saveButton.setBounds(590, 330, 100, 29);
 
-        refreshButton.setText("Refresh");
+        refreshButton.setText("Atualizar");
         refreshButton.addActionListener(formListener);
+        add(refreshButton);
+        refreshButton.setBounds(490, 330, 100, 29);
 
-        newButton.setText("New");
+        newButton.setText("Inserir");
         newButton.addActionListener(formListener);
+        add(newButton);
+        newButton.setBounds(280, 330, 100, 29);
 
-        deleteButton.setText("Delete");
+        deleteButton.setText("Apagar");
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), deleteButton, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
         deleteButton.addActionListener(formListener);
+        add(deleteButton);
+        deleteButton.setBounds(380, 330, 100, 29);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(newButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(deleteButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(refreshButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(saveButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(kcLabel)
-                                    .addComponent(evptrRefLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(kcField, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                                    .addComponent(evptrRefField, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)))
-                            .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))))
-                .addContainerGap())
-        );
+        jLabel1.setText("Kc:");
+        add(jLabel1);
+        jLabel1.setBounds(10, 170, 19, 16);
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {deleteButton, newButton, refreshButton, saveButton});
+        jLabel2.setText("ET0 - Evapotranspiração de Referência ");
+        add(jLabel2);
+        jLabel2.setBounds(10, 200, 270, 16);
 
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(kcLabel)
-                    .addComponent(kcField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(evptrRefLabel)
-                    .addComponent(evptrRefField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(saveButton)
-                    .addComponent(refreshButton)
-                    .addComponent(deleteButton)
-                    .addComponent(newButton))
-                .addContainerGap())
-        );
+        imagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/devagri3/assets/2background.jpg"))); // NOI18N
+        add(imagem);
+        imagem.setBounds(-10, -5, 720, 420);
 
         bindingGroup.bind();
     }
@@ -226,6 +211,9 @@ public class Evapotranspiracao extends JPanel {
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JTextField evptrRefField;
     private javax.swing.JLabel evptrRefLabel;
+    private javax.swing.JLabel imagem;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField kcField;
     private javax.swing.JLabel kcLabel;
     private java.util.List<br.com.devagri3.metodos.Evapotranspiracao_1> list;
@@ -268,6 +256,9 @@ public class Evapotranspiracao extends JPanel {
                 frame.setContentPane(new Evapotranspiracao());
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
+                frame.setSize(700, 400);
+                frame.setLocationRelativeTo(null);
+                frame.setResizable(false); 
                 frame.setVisible(true);
             }
         });

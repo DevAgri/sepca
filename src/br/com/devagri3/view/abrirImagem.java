@@ -5,6 +5,13 @@
  */
 package br.com.devagri3.view;
 
+import br.com.devagri3.metodo.imagem.Calcula;
+import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author willyan
@@ -15,7 +22,13 @@ public class abrirImagem extends javax.swing.JFrame {
      * Creates new form ImagemSatelite
      */
     public abrirImagem() {
+
         initComponents();
+        this.setTitle("Cálculo de area por Imagem de Satélite");
+        this.setLocationRelativeTo(null);
+        this.setSize(780, 480);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**
@@ -27,21 +40,84 @@ public class abrirImagem extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        resultado = new javax.swing.JTextField();
+        fundo = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
+        getContentPane().setLayout(null);
+
+        jButton1.setText("Carregar Imagem");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(490, 420, 190, 29);
+
+        jButton2.setText("Calcular");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(680, 420, 95, 29);
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        jLabel1.setText("Calibrado para imagens com resolução de 72 dpi do Satélite Sentinel II");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(10, 430, 350, 13);
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(10, 10, 640, 380);
+
+        jLabel3.setText("Resultado:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(700, 370, 80, 16);
+
+        resultado.setBackground(new java.awt.Color(153, 255, 153));
+        getContentPane().add(resultado);
+        resultado.setBounds(490, 390, 280, 26);
+
+        fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/devagri3/assets/2background.jpg"))); // NOI18N
+        getContentPane().add(fundo);
+        fundo.setBounds(-16, -6, 800, 510);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        jLabel2.setIcon(new ImageIcon("rec_Talhoes_2017_Prod_Setor__02501.jpg"));
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Calcula calcular = new Calcula();
+        try {
+            calcular.Calcula();
+            double area = calcular.area2;
+            resultado.setText("Área: " + area + " Ha");
+
+        } catch (IOException ex) {
+            Logger.getLogger(abrirImagem.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            this.dispose();
+        }    }//GEN-LAST:event_formKeyPressed
 
     /**
      * @param args the command line arguments
@@ -77,10 +153,18 @@ public class abrirImagem extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new abrirImagem().setVisible(true);
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel fundo;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField resultado;
     // End of variables declaration//GEN-END:variables
 }

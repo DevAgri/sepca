@@ -93,12 +93,27 @@ public class frmPrincipal extends javax.swing.JFrame {
         menu_calc_ppbc.setText("Calcular");
 
         jMenuItem3.setText("Potencial de Produção");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         menu_calc_ppbc.add(jMenuItem3);
 
         jMenuItem4.setText("Estimativa de Produção");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         menu_calc_ppbc.add(jMenuItem4);
 
         jMenuItem5.setText("Área Plantada (Imagem Satélite)");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         menu_calc_ppbc.add(jMenuItem5);
 
         jMenuItem6.setText("Estimativa Total de Produção");
@@ -128,7 +143,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-      
+        new Evapotranspiracao().setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
@@ -136,6 +151,18 @@ public class frmPrincipal extends javax.swing.JFrame {
             this.dispose();
         }      
     }//GEN-LAST:event_formKeyPressed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        new Potencial_de_producao().setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        new Estimativa_Ha().setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        new abrirImagem().setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,7 +195,9 @@ public class frmPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 new frmPrincipal().setVisible(true);
+                
             }
         });
     }

@@ -54,6 +54,8 @@ public class frmPrincipal extends javax.swing.JFrame {
         menu_calc_ppbc = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         menu_sobre = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -95,6 +97,12 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jMenuItem4.setText("Estimativa de Produção");
         menu_calc_ppbc.add(jMenuItem4);
+
+        jMenuItem5.setText("Área Plantada (Imagem Satélite)");
+        menu_calc_ppbc.add(jMenuItem5);
+
+        jMenuItem6.setText("Estimativa Total de Produção");
+        menu_calc_ppbc.add(jMenuItem6);
 
         jMenu.add(menu_calc_ppbc);
 
@@ -172,6 +180,8 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JLabel lbData;
     private javax.swing.JLabel lbUsuario;
     private javax.swing.JMenu menu_calc_ppbc;

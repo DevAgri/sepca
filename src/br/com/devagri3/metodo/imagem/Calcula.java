@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.devagri3.metodos.img;
+package br.com.devagri3.metodo.imagem;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;

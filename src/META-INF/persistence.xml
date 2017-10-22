@@ -3,6 +3,7 @@
   <persistence-unit name="devagriPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>br.com.devagri3.metodos.MetodoZae</class>
+    <class>br.com.devagri3.metodos.Evapotranspiracao_1</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/devagri"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>

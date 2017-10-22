@@ -41,7 +41,9 @@ import javax.persistence.Transient;
     @NamedQuery(name = "MetodoZae.findByC", query = "SELECT m FROM MetodoZae m WHERE m.c = :c"),
     @NamedQuery(name = "MetodoZae.findByD", query = "SELECT m FROM MetodoZae m WHERE m.d = :d"),
     @NamedQuery(name = "MetodoZae.findByPbc", query = "SELECT m FROM MetodoZae m WHERE m.pbc = :pbc"),
-    @NamedQuery(name = "MetodoZae.findByAno", query = "SELECT m FROM MetodoZae m WHERE m.ano = :ano")})
+    @NamedQuery(name = "MetodoZae.findByAno", query = "SELECT m FROM MetodoZae m WHERE m.ano = :ano"),
+    @NamedQuery(name = "MetodoZae.findByProdutor", query = "SELECT m FROM MetodoZae m WHERE m.produtor = :produtor"),
+    @NamedQuery(name = "MetodoZae.findBySetor", query = "SELECT m FROM MetodoZae m WHERE m.setor = :setor")})
 public class MetodoZae implements Serializable {
 
     @Transient
@@ -53,40 +55,80 @@ public class MetodoZae implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_metodo_zae")
     private Integer idMetodoZae;
+    @Basic(optional = false)
     @Column(name = "ciaf")
-    private Short ciaf;
+    private float ciaf;
+    @Basic(optional = false)
     @Column(name = "cr")
-    private Short cr;
+    private float cr;
+    @Basic(optional = false)
     @Column(name = "ccol")
-    private Short ccol;
+    private float ccol;
+    @Basic(optional = false)
     @Column(name = "cum")
-    private Short cum;
+    private float cum;
+    @Basic(optional = false)
     @Column(name = "nd")
-    private Short nd;
+    private float nd;
+    @Basic(optional = false)
     @Column(name = "f_")
-    private Short f;
+    private float f;
+    @Basic(optional = false)
     @Column(name = "a_")
-    private Short a;
+    private float a;
+    @Basic(optional = false)
     @Column(name = "b_")
-    private Short b;
+    private float b;
+    @Basic(optional = false)
     @Column(name = "ppbp")
-    private Short ppbp;
+    private float ppbp;
+    @Basic(optional = false)
     @Column(name = "pbn")
-    private Short pbn;
+    private float pbn;
+    @Basic(optional = false)
     @Column(name = "c_")
-    private Short c;
+    private float c;
+    @Basic(optional = false)
     @Column(name = "d_")
-    private Short d;
+    private float d;
+    @Basic(optional = false)
     @Column(name = "pbc")
-    private Short pbc;
+    private float pbc;
+    @Basic(optional = false)
     @Column(name = "ano")
-    private Short ano;
+    private short ano;
+    @Basic(optional = false)
+    @Column(name = "produtor")
+    private short produtor;
+    @Basic(optional = false)
+    @Column(name = "setor")
+    private short setor;
 
     public MetodoZae() {
     }
 
     public MetodoZae(Integer idMetodoZae) {
         this.idMetodoZae = idMetodoZae;
+    }
+
+    public MetodoZae(Integer idMetodoZae, float ciaf, float cr, float ccol, float cum, float nd, float f, float a, float b, float ppbp, float pbn, float c, float d, float pbc, short ano, short produtor, short setor) {
+        this.idMetodoZae = idMetodoZae;
+        this.ciaf = ciaf;
+        this.cr = cr;
+        this.ccol = ccol;
+        this.cum = cum;
+        this.nd = nd;
+        this.f = f;
+        this.a = a;
+        this.b = b;
+        this.ppbp = ppbp;
+        this.pbn = pbn;
+        this.c = c;
+        this.d = d;
+        this.pbc = pbc;
+        this.ano = ano;
+        this.produtor = produtor;
+        this.setor = setor;
     }
 
     public Integer getIdMetodoZae() {
@@ -99,144 +141,164 @@ public class MetodoZae implements Serializable {
         changeSupport.firePropertyChange("idMetodoZae", oldIdMetodoZae, idMetodoZae);
     }
 
-    public Short getCiaf() {
+    public float getCiaf() {
         return ciaf;
     }
 
-    public void setCiaf(Short ciaf) {
-        Short oldCiaf = this.ciaf;
+    public void setCiaf(float ciaf) {
+        float oldCiaf = this.ciaf;
         this.ciaf = ciaf;
         changeSupport.firePropertyChange("ciaf", oldCiaf, ciaf);
     }
 
-    public Short getCr() {
+    public float getCr() {
         return cr;
     }
 
-    public void setCr(Short cr) {
-        Short oldCr = this.cr;
+    public void setCr(float cr) {
+        float oldCr = this.cr;
         this.cr = cr;
         changeSupport.firePropertyChange("cr", oldCr, cr);
     }
 
-    public Short getCcol() {
+    public float getCcol() {
         return ccol;
     }
 
-    public void setCcol(Short ccol) {
-        Short oldCcol = this.ccol;
+    public void setCcol(float ccol) {
+        float oldCcol = this.ccol;
         this.ccol = ccol;
         changeSupport.firePropertyChange("ccol", oldCcol, ccol);
     }
 
-    public Short getCum() {
+    public float getCum() {
         return cum;
     }
 
-    public void setCum(Short cum) {
-        Short oldCum = this.cum;
+    public void setCum(float cum) {
+        float oldCum = this.cum;
         this.cum = cum;
         changeSupport.firePropertyChange("cum", oldCum, cum);
     }
 
-    public Short getNd() {
+    public float getNd() {
         return nd;
     }
 
-    public void setNd(Short nd) {
-        Short oldNd = this.nd;
+    public void setNd(float nd) {
+        float oldNd = this.nd;
         this.nd = nd;
         changeSupport.firePropertyChange("nd", oldNd, nd);
     }
 
-    public Short getF() {
+    public float getF() {
         return f;
     }
 
-    public void setF(Short f) {
-        Short oldF = this.f;
+    public void setF(float f) {
+        float oldF = this.f;
         this.f = f;
         changeSupport.firePropertyChange("f", oldF, f);
     }
 
-    public Short getA() {
+    public float getA() {
         return a;
     }
 
-    public void setA(Short a) {
-        Short oldA = this.a;
+    public void setA(float a) {
+        float oldA = this.a;
         this.a = a;
         changeSupport.firePropertyChange("a", oldA, a);
     }
 
-    public Short getB() {
+    public float getB() {
         return b;
     }
 
-    public void setB(Short b) {
-        Short oldB = this.b;
+    public void setB(float b) {
+        float oldB = this.b;
         this.b = b;
         changeSupport.firePropertyChange("b", oldB, b);
     }
 
-    public Short getPpbp() {
+    public float getPpbp() {
         return ppbp;
     }
 
-    public void setPpbp(Short ppbp) {
-        Short oldPpbp = this.ppbp;
+    public void setPpbp(float ppbp) {
+        float oldPpbp = this.ppbp;
         this.ppbp = ppbp;
         changeSupport.firePropertyChange("ppbp", oldPpbp, ppbp);
     }
 
-    public Short getPbn() {
+    public float getPbn() {
         return pbn;
     }
 
-    public void setPbn(Short pbn) {
-        Short oldPbn = this.pbn;
+    public void setPbn(float pbn) {
+        float oldPbn = this.pbn;
         this.pbn = pbn;
         changeSupport.firePropertyChange("pbn", oldPbn, pbn);
     }
 
-    public Short getC() {
+    public float getC() {
         return c;
     }
 
-    public void setC(Short c) {
-        Short oldC = this.c;
+    public void setC(float c) {
+        float oldC = this.c;
         this.c = c;
         changeSupport.firePropertyChange("c", oldC, c);
     }
 
-    public Short getD() {
+    public float getD() {
         return d;
     }
 
-    public void setD(Short d) {
-        Short oldD = this.d;
+    public void setD(float d) {
+        float oldD = this.d;
         this.d = d;
         changeSupport.firePropertyChange("d", oldD, d);
     }
 
-    public Short getPbc() {
+    public float getPbc() {
         return pbc;
     }
 
-    public void setPbc(Short pbc) {
-        Short oldPbc = this.pbc;
+    public void setPbc(float pbc) {
+        float oldPbc = this.pbc;
         this.pbc = pbc;
         changeSupport.firePropertyChange("pbc", oldPbc, pbc);
     }
 
-    public Short getAno() {
+    public short getAno() {
         return ano;
     }
 
-    public void setAno(Short ano) {
-        Short oldAno = this.ano;
+    public void setAno(short ano) {
+        short oldAno = this.ano;
         this.ano = ano;
         changeSupport.firePropertyChange("ano", oldAno, ano);
+    }
+
+    public short getProdutor() {
+        return produtor;
+    }
+
+    public void setProdutor(short produtor) {
+        short oldProdutor = this.produtor;
+        this.produtor = produtor;
+        changeSupport.firePropertyChange("produtor", oldProdutor, produtor);
+    }
+
+    public short getSetor() {
+        return setor;
+    }
+
+    public void setSetor(short setor) {
+        short oldSetor = this.setor;
+        this.setor = setor;
+        changeSupport.firePropertyChange("setor", oldSetor, setor);
     }
 
     @Override

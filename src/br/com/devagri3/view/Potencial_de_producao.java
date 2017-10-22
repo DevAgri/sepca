@@ -601,7 +601,7 @@ public class Potencial_de_producao extends JPanel {
             public void run() {
                 JFrame frame = new JFrame();
                 frame.setContentPane(new Potencial_de_producao());
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
                 frame.setSize(900, 550);
                 frame.setLocationRelativeTo(null);

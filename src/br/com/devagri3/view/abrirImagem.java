@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 /**
  *
@@ -26,6 +27,7 @@ public class abrirImagem extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Cálculo de area por Imagem de Satélite");
         this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(780, 480);
         this.setLocationRelativeTo(null);
         this.setResizable(false);

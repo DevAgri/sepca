@@ -7,6 +7,10 @@ package br.com.devagri3.view;
 
 import java.awt.event.KeyEvent;
 import br.com.devagri3.utils.Data;
+import java.awt.Component;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import br.com.devagri3.view.Estimativa_Ha;
        
 /**
  *
@@ -24,6 +28,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         initComponents();
         //this.setExtendedState(MAXIMIZED_BOTH); //Inicia tela maximizada
         this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false); 
 
         lbData.setText(data.dataAtual());
@@ -139,11 +144,14 @@ public class frmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-      
+      new Sobre().setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        new Evapotranspiracao().setVisible(true);
+        Estimativa_Ha h = new Estimativa_Ha();
+        JFrame frame = new JFrame();
+        Component add = frame.add(h);
+        add.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
@@ -157,7 +165,9 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        new Estimativa_Ha().setVisible(true);
+      Estimativa_Ha h = new Estimativa_Ha();
+      h.setVisible(true);
+      
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed

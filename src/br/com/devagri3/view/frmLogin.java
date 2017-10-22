@@ -102,9 +102,11 @@ public class frmLogin extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jtfUser.setBackground(new java.awt.Color(242, 244, 243));
         jtfUser.setBorder(null);
         getContentPane().add(jtfUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 120, 20));
 
+        jtfSenha.setBackground(new java.awt.Color(242, 242, 242));
         jtfSenha.setBorder(null);
         jtfSenha.setRequestFocusEnabled(false);
         jtfSenha.addKeyListener(new java.awt.event.KeyAdapter() {

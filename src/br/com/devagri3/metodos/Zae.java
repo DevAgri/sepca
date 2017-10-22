@@ -95,6 +95,7 @@ public class Zae extends JPanel {
         deleteButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jt_Resultado = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         FormListener formListener = new FormListener();
@@ -364,6 +365,9 @@ public class Zae extends JPanel {
         jt_Resultado.addActionListener(formListener);
         add(jt_Resultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 187, 198, -1));
 
+        jButton1.setText("Evapotranspiração");
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/devagri/assets/sugarcane.jpg"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 440));
 
@@ -470,6 +474,7 @@ public class Zae extends JPanel {
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JTextField fField;
     private javax.swing.JLabel fLabel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jt_Resultado;

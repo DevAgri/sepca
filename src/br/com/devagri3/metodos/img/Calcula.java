@@ -28,10 +28,10 @@ public class Calcula {
        int w = imagem.getWidth();
        int h = imagem.getHeight();
        int pxdb = 0;
-       
+       int cont2=0;
        for (int y =0; y < imagem.getHeight(); y++){
            for (int x=0; x < imagem.getWidth(); x++) {
-               
+             ++cont2;  
              int scrPixel = imagem.getRGB(x, y);
              Color c = new Color (scrPixel);
              int valR = c.getRed();
@@ -46,13 +46,11 @@ public class Calcula {
        }
        
        //Imagens do satelite Sentinel 2 - medidas  10x10m/px
-       
-       System.out.println(pxdb);
-        area = pxdb;
-        System.out.println(area);
-        
-        area2 = ((area/37.79)* 2.54);///100  ;
-        System.out.println("Area em cm "+area2);
+        area=pxdb;    
+        System.out.println("Região:"+cont2);
+        System.out.println("Região de interesse:" + pxdb);   
+        area2 = ((area/(37.79*10))* 2.54);
+        System.out.println("Área em Ha : "+area2);
         
         
     }

@@ -6,6 +6,7 @@
 package br.com.devagri3;
 
 import br.com.devagri3.dao.Conecta;
+import br.com.devagri3.view.frmLogin;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,6 +23,9 @@ public class BrComDevagri3 {
         try {
             // TODO code application logic here
             Conecta.conectabd();
+            frmLogin frm = new frmLogin();
+            frm.setVisible(true);
+            
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(BrComDevagri3.class.getName()).log(Level.SEVERE, null, ex);
         }

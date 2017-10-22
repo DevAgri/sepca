@@ -24,10 +24,10 @@ public class Calcula {
     public void Calcula() throws IOException {
         
         
-        BufferedImage imagem = ImageIO.read(new File("imgprocess.jpg"));
+       BufferedImage imagem = ImageIO.read(new File("rec_Talhoes_2017_Prod_Setor__02501.jpg"));
        int w = imagem.getWidth();
        int h = imagem.getHeight();
-       int pxwh = 0;
+       int pxdb = 0;
        
        for (int y =0; y < imagem.getHeight(); y++){
            for (int x=0; x < imagem.getWidth(); x++) {
@@ -38,19 +38,23 @@ public class Calcula {
              int valG = c.getGreen();
              int valB = c.getBlue();
              
-             if ( valR == 255 && valG == 255 && valB == 255) {
-                 pxwh++;
+             if ( valR != 0 && valG != 0 && valB != 0) { 
+                 pxdb++;
              }
                       
            }
        }
        
-       System.out.println(pxwh);
-        area = pxwh;
+       //Imagens do satelite Sentinel 2 - medidas  10x10m/px
+       
+       System.out.println(pxdb);
+        area = pxdb;
         System.out.println(area);
         
         area2 = ((area/37.79)* 2.54);///100  ;
         System.out.println("Area em cm "+area2);
+        
+        
     }
     
 }

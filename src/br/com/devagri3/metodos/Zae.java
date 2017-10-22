@@ -37,7 +37,10 @@ public class Zae extends JPanel {
 //            Integer c = Integer.parseInt(cField.getText());
 //            Integer d = Integer.parseInt(dField.getText());
 //            Integer pbc = Integer.parseInt(pbcField.getText());
+//            
+//            
 //            Integer resp = ciaf*cr*ccol*cum*nd*(f*(a+b+ppbp)*pbn+(1-f)*(c+d*ppbp)*pbc);
+//            
 //            jt_Resultado.setText(Integer.toString(resp));
             
         }
@@ -357,7 +360,7 @@ public class Zae extends JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(751, 191, -1, -1));
 
         jt_Resultado.setBackground(new java.awt.Color(204, 255, 204));
-        jt_Resultado.setText("Resultado");
+        jt_Resultado.setText("Resultado kg/Ha");
         jt_Resultado.addActionListener(formListener);
         add(jt_Resultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 187, 198, -1));
 

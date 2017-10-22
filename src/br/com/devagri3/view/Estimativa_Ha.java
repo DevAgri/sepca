@@ -62,12 +62,13 @@ public class Estimativa_Ha extends JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         resultado = new javax.swing.JTextField();
-        imagem = new javax.swing.JLabel();
 
         FormListener formListener = new FormListener();
 
         addKeyListener(formListener);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        masterTable.setShowGrid(true);
 
         org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, list, masterTable);
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${ppcana}"));
@@ -86,7 +87,7 @@ public class Estimativa_Ha extends JPanel {
 
         masterScrollPane.setViewportView(masterTable);
 
-        add(masterScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 31, 704, 109));
+        add(masterScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 31, 860, 109));
 
         ppcanaLabel.setText("Ppcana:");
         add(ppcanaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 151, -1, -1));
@@ -98,7 +99,7 @@ public class Estimativa_Ha extends JPanel {
         add(etrcanaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 151, -1, -1));
 
         etccanaLabel.setText("Etccana:");
-        add(etccanaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(526, 151, -1, -1));
+        add(etccanaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, -1, -1));
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.ppcana}"), ppcanaField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -122,7 +123,7 @@ public class Estimativa_Ha extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), etrcanaField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(etrcanaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 146, 143, -1));
+        add(etrcanaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 146, 110, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.etccana}"), etccanaField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -130,19 +131,19 @@ public class Estimativa_Ha extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), etccanaField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(etccanaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 146, 120, -1));
+        add(etccanaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 120, -1));
 
         saveButton.setText("Salvar");
         saveButton.addActionListener(formListener);
-        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, 100, -1));
+        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 440, 100, -1));
 
         refreshButton.setText("Atualizar");
         refreshButton.addActionListener(formListener);
-        add(refreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 350, -1, -1));
+        add(refreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 440, -1, -1));
 
         newButton.setText("Inserir");
         newButton.addActionListener(formListener);
-        add(newButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 100, -1));
+        add(newButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, 100, -1));
 
         deleteButton.setText("Apagar");
 
@@ -150,7 +151,7 @@ public class Estimativa_Ha extends JPanel {
         bindingGroup.addBinding(binding);
 
         deleteButton.addActionListener(formListener);
-        add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 100, -1));
+        add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 440, 100, -1));
 
         jLabel2.setText("Aplicação do Balanço Hídrico: PRcana (Produtividade de cana-de-açúcar limitada pela disponibilidade hídrica )");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
@@ -169,14 +170,11 @@ public class Estimativa_Ha extends JPanel {
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel1.setText("Resultado:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, 80, 20));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 150, 80, 20));
 
         resultado.setBackground(new java.awt.Color(204, 255, 204));
         resultado.setText("Resultado");
-        add(resultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 200, 110, -1));
-
-        imagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/devagri3/assets/2background.jpg"))); // NOI18N
-        add(imagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 730, 440));
+        add(resultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 150, 130, -1));
 
         bindingGroup.bind();
     }
@@ -264,6 +262,7 @@ public class Estimativa_Ha extends JPanel {
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         
+            
     }//GEN-LAST:event_formKeyPressed
 
 
@@ -274,7 +273,6 @@ public class Estimativa_Ha extends JPanel {
     private javax.swing.JLabel etccanaLabel;
     private javax.swing.JTextField etrcanaField;
     private javax.swing.JLabel etrcanaLabel;
-    private javax.swing.JLabel imagem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -327,9 +325,9 @@ public class Estimativa_Ha extends JPanel {
                 Estframe.setContentPane(new Estimativa_Ha());
                 Estframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 Estframe.pack();
-                Estframe.setSize(710, 432);
-                Estframe.setLocationRelativeTo(null);
-                Estframe.setResizable(false); 
+                //Estframe.setSize(710, 432);
+                //Estframe.setLocationRelativeTo(null);
+                //Estframe.setResizable(false); 
                 Estframe.setVisible(true);
             }
         });

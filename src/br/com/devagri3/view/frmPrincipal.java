@@ -11,6 +11,7 @@ import java.awt.Component;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import br.com.devagri3.view.Estimativa_Ha;
+import java.awt.BorderLayout;
        
 /**
  *
@@ -51,6 +52,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         lbUsuario = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        painel = new javax.swing.JPanel();
         lbData = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenu = new javax.swing.JMenuBar();
@@ -65,23 +67,26 @@ public class frmPrincipal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(900, 600));
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 formKeyPressed(evt);
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(lbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 70, 20));
+        getContentPane().add(lbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 70, 20));
 
         jLabel2.setText("Usuário:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 20));
+
+        painel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(painel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 880, 510));
 
         lbData.setText("Data:");
-        getContentPane().add(lbData, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 260, 20));
+        getContentPane().add(lbData, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 260, 20));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/devagri3/assets/background.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 580));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/devagri3/assets/2background.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 570));
 
         menu_config.setText("Configurações");
 
@@ -122,6 +127,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         menu_calc_ppbc.add(jMenuItem5);
 
         jMenuItem6.setText("Estimativa Total de Produção");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         menu_calc_ppbc.add(jMenuItem6);
 
         jMenu.add(menu_calc_ppbc);
@@ -148,31 +158,51 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        Estimativa_Ha h = new Estimativa_Ha();
-        JFrame frame = new JFrame();
-        Component add = frame.add(h);
-        add.setVisible(true);
+        Evapotranspiracao evp = new Evapotranspiracao();
+        evp.setSize(700,400);
+        evp.setLocation(1,1);
+        painel.removeAll();
+        painel.add(evp,BorderLayout.CENTER);
+        painel.revalidate();
+        painel.repaint();
+        
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
-            this.dispose();
+            painel.removeAll();
+            painel.repaint();
         }      
     }//GEN-LAST:event_formKeyPressed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        new Potencial_de_producao().setVisible(true);
+        Potencial_de_producao est = new Potencial_de_producao();
+        est.setSize(880,530);
+        est.setLocation(0,0);
+        painel.removeAll();
+        painel.add(est,BorderLayout.CENTER);
+        painel.revalidate();
+        painel.repaint();         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-      Estimativa_Ha h = new Estimativa_Ha();
-      h.setVisible(true);
+        Estimativa_Ha est = new Estimativa_Ha();
+        est.setSize(710,432);
+        est.setLocation(5,5);
+        painel.removeAll();
+        painel.add(est,BorderLayout.CENTER);
+        painel.revalidate();
+        painel.repaint();      
       
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         new abrirImagem().setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        new Total().setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,6 +256,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu menu_calc_ppbc;
     private javax.swing.JMenu menu_config;
     private javax.swing.JMenu menu_sobre;
+    private javax.swing.JPanel painel;
     // End of variables declaration//GEN-END:variables
 
   

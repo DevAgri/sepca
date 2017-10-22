@@ -95,7 +95,9 @@ public class Potencial_de_producao extends JPanel {
 
         FormListener formListener = new FormListener();
 
-        setLayout(null);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        masterTable.setShowGrid(true);
 
         org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, list, masterTable);
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${ciaf}"));
@@ -147,75 +149,58 @@ public class Potencial_de_producao extends JPanel {
         columnBinding.setColumnName("Setor");
         columnBinding.setColumnClass(Short.class);
         bindingGroup.addBinding(jTableBinding);
-
+        jTableBinding.bind();
         masterScrollPane.setViewportView(masterTable);
 
-        add(masterScrollPane);
-        masterScrollPane.setBounds(6, 6, 870, 131);
+        add(masterScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 860, 131));
 
         ciafLabel.setText("Ciaf:");
-        add(ciafLabel);
-        ciafLabel.setBounds(6, 148, 29, 16);
+        add(ciafLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 148, -1, -1));
 
         crLabel.setText("Cr:");
-        add(crLabel);
-        crLabel.setBounds(109, 148, 18, 16);
+        add(crLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 148, -1, -1));
 
         ccolLabel.setText("Ccol:");
-        add(ccolLabel);
-        ccolLabel.setBounds(338, 148, 32, 16);
+        add(ccolLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(338, 148, -1, -1));
 
         cumLabel.setText("Cum:");
-        add(cumLabel);
-        cumLabel.setBounds(444, 148, 33, 16);
+        add(cumLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 148, -1, -1));
 
         ndLabel.setText("Nd:");
-        add(ndLabel);
-        ndLabel.setBounds(553, 148, 22, 16);
+        add(ndLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(553, 148, -1, -1));
 
         fLabel.setText("F:");
-        add(fLabel);
-        fLabel.setBounds(651, 148, 11, 16);
+        add(fLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(651, 148, -1, -1));
 
         aLabel.setText("A:");
-        add(aLabel);
-        aLabel.setBounds(738, 148, 13, 16);
+        add(aLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(738, 148, -1, -1));
 
         bLabel.setText("B:");
-        add(bLabel);
-        bLabel.setBounds(6, 180, 11, 16);
+        add(bLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 180, -1, -1));
 
         ppbpLabel.setText("Ppbp:");
-        add(ppbpLabel);
-        ppbpLabel.setBounds(109, 180, 35, 16);
+        add(ppbpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 180, -1, -1));
 
         pbnLabel.setText("Pbn:");
-        add(pbnLabel);
-        pbnLabel.setBounds(338, 180, 27, 16);
+        add(pbnLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(338, 180, -1, -1));
 
         cLabel.setText("C:");
-        add(cLabel);
-        cLabel.setBounds(445, 180, 13, 16);
+        add(cLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 180, -1, -1));
 
         dLabel.setText("D:");
-        add(dLabel);
-        dLabel.setBounds(551, 180, 14, 16);
+        add(dLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(551, 180, -1, -1));
 
         pbcLabel.setText("Pbc:");
-        add(pbcLabel);
-        pbcLabel.setBounds(645, 180, 26, 16);
+        add(pbcLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(645, 180, -1, -1));
 
         anoLabel.setText("Ano:");
-        add(anoLabel);
-        anoLabel.setBounds(6, 233, 29, 16);
+        add(anoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
         produtorLabel.setText("Produtor:");
-        add(produtorLabel);
-        produtorLabel.setBounds(6, 265, 58, 16);
+        add(produtorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
 
         setorLabel.setText("Setor:");
-        add(setorLabel);
-        setorLabel.setBounds(6, 297, 36, 16);
+        add(setorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.ciaf}"), ciafField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -223,8 +208,7 @@ public class Potencial_de_producao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), ciafField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(ciafField);
-        ciafField.setBounds(41, 143, 62, 26);
+        add(ciafField, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 143, 62, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.cr}"), crField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -232,8 +216,7 @@ public class Potencial_de_producao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), crField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(crField);
-        crField.setBounds(210, 143, 116, 26);
+        add(crField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 143, 116, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.ccol}"), ccolField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -241,8 +224,7 @@ public class Potencial_de_producao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), ccolField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(ccolField);
-        ccolField.setBounds(376, 143, 56, 26);
+        add(ccolField, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 143, 56, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.cum}"), cumField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -250,8 +232,7 @@ public class Potencial_de_producao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), cumField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(cumField);
-        cumField.setBounds(483, 143, 64, 26);
+        add(cumField, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 143, 64, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.nd}"), ndField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -259,8 +240,7 @@ public class Potencial_de_producao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), ndField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(ndField);
-        ndField.setBounds(581, 143, 64, 26);
+        add(ndField, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 143, 64, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.f}"), fField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -268,8 +248,7 @@ public class Potencial_de_producao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), fField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(fField);
-        fField.setBounds(668, 143, 64, 26);
+        add(fField, new org.netbeans.lib.awtextra.AbsoluteConstraints(668, 143, 64, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.a}"), aField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -277,8 +256,7 @@ public class Potencial_de_producao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), aField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(aField);
-        aField.setBounds(757, 143, 64, 26);
+        add(aField, new org.netbeans.lib.awtextra.AbsoluteConstraints(757, 143, 64, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.b}"), bField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -286,8 +264,7 @@ public class Potencial_de_producao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), bField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(bField);
-        bField.setBounds(41, 175, 62, 26);
+        add(bField, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 175, 62, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.ppbp}"), ppbpField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -295,8 +272,7 @@ public class Potencial_de_producao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), ppbpField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(ppbpField);
-        ppbpField.setBounds(210, 175, 56, 26);
+        add(ppbpField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 175, 56, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.pbn}"), pbnField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -304,8 +280,7 @@ public class Potencial_de_producao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), pbnField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(pbnField);
-        pbnField.setBounds(377, 175, 56, 26);
+        add(pbnField, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 175, 56, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.c}"), cField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -313,8 +288,7 @@ public class Potencial_de_producao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), cField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(cField);
-        cField.setBounds(483, 175, 56, 26);
+        add(cField, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 175, 56, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.d}"), dField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -322,8 +296,7 @@ public class Potencial_de_producao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), dField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(dField);
-        dField.setBounds(577, 175, 56, 26);
+        add(dField, new org.netbeans.lib.awtextra.AbsoluteConstraints(577, 175, 56, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.pbc}"), pbcField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -331,8 +304,7 @@ public class Potencial_de_producao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), pbcField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(pbcField);
-        pbcField.setBounds(683, 175, 56, 26);
+        add(pbcField, new org.netbeans.lib.awtextra.AbsoluteConstraints(683, 175, 56, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.ano}"), anoField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -340,8 +312,7 @@ public class Potencial_de_producao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), anoField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(anoField);
-        anoField.setBounds(70, 228, 56, 26);
+        add(anoField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 56, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.produtor}"), produtorField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -349,8 +320,7 @@ public class Potencial_de_producao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), produtorField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(produtorField);
-        produtorField.setBounds(70, 260, 56, 26);
+        add(produtorField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 56, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.setor}"), setorField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -358,23 +328,19 @@ public class Potencial_de_producao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), setorField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(setorField);
-        setorField.setBounds(70, 292, 56, 26);
+        add(setorField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 56, -1));
 
         saveButton.setText("Salvar");
         saveButton.addActionListener(formListener);
-        add(saveButton);
-        saveButton.setBounds(770, 490, 100, 29);
+        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 460, 100, -1));
 
         refreshButton.setText("Atualizar");
         refreshButton.addActionListener(formListener);
-        add(refreshButton);
-        refreshButton.setBounds(660, 490, 100, 29);
+        add(refreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 460, -1, -1));
 
         newButton.setText("Inserir");
         newButton.addActionListener(formListener);
-        add(newButton);
-        newButton.setBounds(450, 490, 100, 29);
+        add(newButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, 100, -1));
 
         deleteButton.setText("Apagar");
 
@@ -382,64 +348,49 @@ public class Potencial_de_producao extends JPanel {
         bindingGroup.addBinding(binding);
 
         deleteButton.addActionListener(formListener);
-        add(deleteButton);
-        deleteButton.setBounds(560, 490, 100, 29);
+        add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, 100, -1));
 
         jLabel1.setText("Ciaf - Coeficiente de Área Foliar");
-        add(jLabel1);
-        jLabel1.setBounds(10, 340, 202, 16);
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
 
         jLabel2.setText("Cr - Coeficiente de Respiração ");
-        add(jLabel2);
-        jLabel2.setBounds(290, 340, 196, 20);
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, -1, 20));
 
         jLabel3.setText("Ccol - Coeficiente (Índice de Colheita)");
-        add(jLabel3);
-        jLabel3.setBounds(600, 340, 240, 16);
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 310, -1, -1));
 
         jLabel4.setText("Cum - Coeficiente de Umidade Residual");
-        add(jLabel4);
-        jLabel4.setBounds(10, 360, 251, 16);
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
 
         jLabel5.setText("Nd - Número do ciclo de crescimento (dias) ");
-        add(jLabel5);
-        jLabel5.setBounds(290, 360, 280, 16);
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, -1, -1));
 
         jLabel6.setText("F - Fração do dia com Nebulosidade");
-        add(jLabel6);
-        jLabel6.setBounds(600, 360, 228, 16);
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 330, -1, -1));
 
         jLabel7.setText("A - 0,8 de acordo com PPBp  e\" 20kg ha(Fischer et al., 2002; Doorenbos & Kassam, 1979) ou 0,5 PPBp < 20kg ha");
-        add(jLabel7);
-        jLabel7.setBounds(10, 380, 706, 16);
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
 
         jLabel8.setText("B - 0,01 de acordo com PPBp  e\" 20kg ha(Fischer et al., 2002; Doorenbos & Kassam, 1979) ou 0,025 PPBp < 20kg ha");
-        add(jLabel8);
-        jLabel8.setBounds(10, 400, 728, 16);
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
 
         jLabel9.setText("PPBp - Produção Bruta da Matéria");
-        add(jLabel9);
-        jLabel9.setBounds(10, 460, 208, 16);
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, -1, -1));
 
         jLabel10.setText("PBn - Período Nublado");
-        add(jLabel10);
-        jLabel10.setBounds(290, 460, 142, 16);
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 430, -1, -1));
 
         jLabel11.setText("C - 0,5 de acordo com PPBp  e\" 20kg ha(Fischer et al., 2002; Doorenbos & Kassam, 1979) ou 0 PPBp < 20kg ha");
-        add(jLabel11);
-        jLabel11.setBounds(10, 420, 694, 16);
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
 
         jLabel12.setText("D - 0,025 de acordo com PPBp  e\" 20kg ha(Fischer et al., 2002; Doorenbos & Kassam, 1979) ou 0,05 PPBp < 20kg ha");
-        add(jLabel12);
-        jLabel12.setBounds(10, 440, 731, 16);
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
 
         jLabel13.setText("PBc - Período de Céu Claro");
-        add(jLabel13);
-        jLabel13.setBounds(600, 460, 168, 16);
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, -1, -1));
 
         imagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/devagri3/assets/2background.jpg"))); // NOI18N
-        add(imagem);
-        imagem.setBounds(-10, -10, 920, 670);
+        add(imagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 880, 500));
 
         bindingGroup.bind();
     }
@@ -603,9 +554,9 @@ public class Potencial_de_producao extends JPanel {
                 frame.setContentPane(new Potencial_de_producao());
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
-                frame.setSize(900, 550);
+                //frame.setSize(900, 550);
                 frame.setLocationRelativeTo(null);
-                frame.setResizable(false); 
+                //frame.setResizable(false); 
                 frame.setVisible(true);
                 
             }

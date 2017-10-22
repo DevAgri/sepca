@@ -51,11 +51,12 @@ public class Evapotranspiracao extends JPanel {
         deleteButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        imagem = new javax.swing.JLabel();
 
         FormListener formListener = new FormListener();
 
-        setLayout(null);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        masterTable.setShowGrid(true);
 
         org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, list, masterTable);
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${kc}"));
@@ -68,16 +69,13 @@ public class Evapotranspiracao extends JPanel {
 
         masterScrollPane.setViewportView(masterTable);
 
-        add(masterScrollPane);
-        masterScrollPane.setBounds(6, 6, 688, 94);
+        add(masterScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 800, 94));
 
         kcLabel.setText("Kc:");
-        add(kcLabel);
-        kcLabel.setBounds(6, 123, 19, 16);
+        add(kcLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 123, -1, -1));
 
         evptrRefLabel.setText("Evptr Ref:");
-        add(evptrRefLabel);
-        evptrRefLabel.setBounds(190, 123, 60, 16);
+        add(evptrRefLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 123, -1, -1));
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.kc}"), kcField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -85,8 +83,7 @@ public class Evapotranspiracao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), kcField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(kcField);
-        kcField.setBounds(31, 118, 153, 26);
+        add(kcField, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 118, 153, -1));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.evptrRef}"), evptrRefField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -94,23 +91,19 @@ public class Evapotranspiracao extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), evptrRefField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        add(evptrRefField);
-        evptrRefField.setBounds(262, 118, 136, 26);
+        add(evptrRefField, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 118, 136, -1));
 
         saveButton.setText("Salvar");
         saveButton.addActionListener(formListener);
-        add(saveButton);
-        saveButton.setBounds(590, 330, 100, 29);
+        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 400, 100, -1));
 
         refreshButton.setText("Atualizar");
         refreshButton.addActionListener(formListener);
-        add(refreshButton);
-        refreshButton.setBounds(490, 330, 100, 29);
+        add(refreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, -1, -1));
 
         newButton.setText("Inserir");
         newButton.addActionListener(formListener);
-        add(newButton);
-        newButton.setBounds(280, 330, 100, 29);
+        add(newButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, 100, -1));
 
         deleteButton.setText("Apagar");
 
@@ -118,20 +111,13 @@ public class Evapotranspiracao extends JPanel {
         bindingGroup.addBinding(binding);
 
         deleteButton.addActionListener(formListener);
-        add(deleteButton);
-        deleteButton.setBounds(380, 330, 100, 29);
+        add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, 100, -1));
 
         jLabel1.setText("Kc:");
-        add(jLabel1);
-        jLabel1.setBounds(10, 170, 19, 16);
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
         jLabel2.setText("ET0 - Evapotranspiração de Referência ");
-        add(jLabel2);
-        jLabel2.setBounds(10, 200, 270, 16);
-
-        imagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/devagri3/assets/2background.jpg"))); // NOI18N
-        add(imagem);
-        imagem.setBounds(-10, -5, 720, 420);
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 270, -1));
 
         bindingGroup.bind();
     }
@@ -211,7 +197,6 @@ public class Evapotranspiracao extends JPanel {
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JTextField evptrRefField;
     private javax.swing.JLabel evptrRefLabel;
-    private javax.swing.JLabel imagem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField kcField;
@@ -256,9 +241,9 @@ public class Evapotranspiracao extends JPanel {
                 frame.setContentPane(new Evapotranspiracao());
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
-                frame.setSize(700, 400);
-                frame.setLocationRelativeTo(null);
-                frame.setResizable(false); 
+                //frame.setSize(700, 400);
+                //setLocationRelativeTo(null);
+                //frame.setResizable(false); 
                 frame.setVisible(true);
             }
         });

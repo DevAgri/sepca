@@ -18,14 +18,14 @@ void setup()
   Serial.begin(9600);
   Wire.begin();
   lightMeter.begin();
-  delay(1000);//Aguarda 1 seg antes de acessar as informações do sensor
+  delay(1000);//Aguarda 1 seg antes de acessar as informaÃ§Ãµes do sensor
   //Wire.begin();
 }
 
 void loop()
 {
   uint16_t lux = lightMeter.readLightLevel();
-  DHT.read11(dht_dpin); //Lê as informações do sensor
+  DHT.read11(dht_dpin); //LÃª as informaÃ§Ãµes do sensor
   Serial.print("Umidade = ");
   Serial.print(DHT.humidity);
   Serial.print("% | ");
@@ -42,6 +42,6 @@ void loop()
   // Keep reading from Arduino Serial Monitor and send to HC-05
   if (Serial.available())
     BTSerial.write(Serial.read());
-  //Não diminuir o valor abaixo. O ideal é a leitura a cada 2 segundos
+  //NÃ£o diminuir o valor abaixo. O ideal Ã© a leitura a cada 2 segundos
   delay(2000);  
 }

@@ -6,6 +6,7 @@
 package br.com.devagri3;
 
 import br.com.devagri3.dao.Conecta;
+import br.com.devagri3.utils.Globals;
 import br.com.devagri3.view.frmLogin;
 import java.util.logging.Level;
 import java.util.logging.Logger;

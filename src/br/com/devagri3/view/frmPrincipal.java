@@ -7,6 +7,7 @@ package br.com.devagri3.view;
 
 import java.awt.event.KeyEvent;
 import br.com.devagri3.utils.Data;
+import br.com.devagri3.utils.Globals;
 import java.awt.Component;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -30,6 +31,8 @@ public class frmPrincipal extends javax.swing.JFrame {
      */
     public frmPrincipal() {
         initComponents();
+        
+
         //this.setExtendedState(MAXIMIZED_BOTH); //Inicia tela maximizada
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

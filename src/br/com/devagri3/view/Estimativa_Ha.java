@@ -5,14 +5,8 @@
  */
 package br.com.devagri3.view;
 
-import br.com.devagri3.dao.Conecta;
-import com.sun.javafx.property.adapter.Disposer;
 import java.awt.EventQueue;
-import java.awt.event.KeyEvent;
 import java.beans.Beans;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +22,8 @@ import br.com.devagri3.utils.Globals;
  * @author willyan
  */
 public class Estimativa_Ha extends JPanel {
-    Globals g = new Globals();
+       Globals g = new Globals();
+      
 
     
     int calc_produt() throws SQLException{

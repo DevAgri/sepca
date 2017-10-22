@@ -29,11 +29,12 @@ public class Total extends javax.swing.JFrame {
         System.out.println(area2);
         System.out.println(prcana2);
         
+        
         jt_area.setText(String.valueOf(area2));
         jt_prcana.setText(String.valueOf(prcana2));
         
-        double total_geral = area2*prcana2;
-        jt_total.setText(String.valueOf(total_geral));
+        double total_geral = area2*(prcana2/1000);
+        jt_total.setText(String.valueOf(total_geral)+ "Toneladas");
         
         
     }
